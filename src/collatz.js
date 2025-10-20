@@ -18,8 +18,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 
 function collatz(num){
-    arr=[];
-    arr.push(num)
+    len=1
     while (num!=1 && num!=0) {
         
 
@@ -31,23 +30,40 @@ function collatz(num){
         {
             num=(num*3)+1;
         }
-        arr.push(num)
+        
+        len++;
     }
-    return arr
+    return len
 }
 
-console.log(collatz(8).length)
-console.log(collatz(9).length);
-console.log(collatz(205676).length);
-console.log(collatz(675666).length);
-console.log(collatz(789999).length);
-console.log(collatz(999979).length);
-console.log(collatz(912345).length);
+console.log(collatz(8))
+console.log(collatz(837799));
+//console.log(collatz(205676).length);
+//console.log(collatz(675666).length);
+//console.log(collatz(789999).length);
+//console.log(collatz(837799).length);
+//console.log(collatz(912345).length);
 
 //m= new Map();
-
-//for (i=1; i++; i<1000000){
+//num=0
+//chain=0
+//for (i=1; i<1000000; i++){
 //    m.set(i,collatz(i).length);
 //}
 
 //console.log( Math.max(m.values()))
+
+longestchain=0
+num=0
+for (i=1; i<1000000; i++) 
+{
+    chain=collatz(i)
+    if (chain>longestchain)
+    {
+        longestchain=chain
+        num=i
+    }
+}
+
+console.log(longestchain)
+console.log(num)
