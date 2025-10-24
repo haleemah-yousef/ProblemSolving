@@ -13,15 +13,24 @@ Example:
 coinCombination(200p) //-> 73682
 */
 
-function coinCombination(nump) {
-    coins = [1,2,5,10,20,50,100,200];
-    ways=0
-    /*
-    I'm not really sure how i can implement it but if we can create sort of a a tree for every coin that could be used 
-    so for the 1 pound i will have all the other coins as children except the 2 pounds and when i go deep in the tree 
-    i will keep track of the paths like the sum of the coins 
-    but im not sure how i can make sure to not have the same combinations in different paths of the trees*/
+// Recursion approach
 
+function countWays(coins,n,s) {
+        if (s==0)
+            return 1;
+        if (s<0)
+            return 0;
+        if (n==0)
+            return 0;
+
+        return countWays(coins,n,s-coins[n-1])+ countWays(coins,n-1,s);
+    }
+
+function coinCombination(nump) {
+    coinsarr = [200,100,50,20,10,5,2,1];
+    return countWays(coinsarr,coinsarr.length,nump);
 
 }
+
+console.log(coinCombination(200))
 
