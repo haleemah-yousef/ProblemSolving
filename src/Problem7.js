@@ -12,7 +12,7 @@ function indexOfItem(arr,num)
     l=arr.length
     low = 0
     high = arr.length-1
-    mid=Math.floor((high+low)/2)
+    mid=parseInt((high+low)/2)
 
     while (high>=low) 
     {
@@ -22,7 +22,7 @@ function indexOfItem(arr,num)
             low=mid+1
         else
             high=mid-1
-        mid=Math.floor((high+low)/2)
+        mid=parseInt((high+low)/2)
     }
 
     return -1
@@ -30,4 +30,4 @@ function indexOfItem(arr,num)
 
 
 
-console.log(indexOfItem([1,2,3,4,5],2))
+console.log(indexOfItem([1,2,3,4,5],1))
