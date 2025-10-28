@@ -22,7 +22,7 @@ function commonCharactersArr(arrStr)
     return;
 
     let result = new Set(arrStr[0]);
-    for (let str in arrStr) 
+    for (let str of arrStr) 
     {
         result=result.intersection(new Set(str));
     }
@@ -31,7 +31,7 @@ function commonCharactersArr(arrStr)
 
 }
 
-console.log(commonCharactersArr(['acexivou', 'aegihobu','aeu'])); // Returns: 'aeiou'
+console.log(commonCharactersArr(['acexivou', 'aegihobu','aeu'])); // Returns: 'aeu'
 
 
 function commonCharacters(str1, str2) 
