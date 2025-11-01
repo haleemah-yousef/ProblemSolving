@@ -18,11 +18,22 @@ function deepEquals(obj1,obj2) {
     if(obj1===obj2)
         return true;
 
-    keys1=Object.keys[obj1]
-    keys2 = Object.keys[obj2]
+    keys1=Object.keys(obj1)
+    keys2 = Object.keys(obj2)
     /**
      * we can compare the keys and if the key it self is an object we will call the function again
      */
+
+    for (let key of keys1)
+    {
+        if (keys2.includes(key))
+        {
+            if(!deepEquals(obj1[key],obj2[key])){
+                return false
+            }
+        }
+    }
+    return true 
 }
 
 
